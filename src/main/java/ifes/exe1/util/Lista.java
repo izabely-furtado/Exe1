@@ -16,11 +16,11 @@ public class Lista implements ILista {
 
     private No inicio;
     private No fim;
-    private int tamanho;
+    public int tamanho;
 
     public Lista() {
-        this.inicio = null;
-        this.fim = null;
+        this.inicio = new No();
+        this.fim = new No();
         this.tamanho = 0;
     }
 
@@ -47,10 +47,10 @@ public class Lista implements ILista {
     }
     
     //verifica se está vazia
+    @Override
     public boolean vazia(){
         return this.inicio == null && this.fim == null;
     }
-    
     
     public Object removeFim() throws Exception {
         Object retirado;
@@ -76,6 +76,7 @@ public class Lista implements ILista {
     }
 
     
+    @Override
     public Object removeInicio() {
         Object retorno = this.inicio.getValorNo();
         this.inicio.setValorNo(this.inicio.getValorProx());

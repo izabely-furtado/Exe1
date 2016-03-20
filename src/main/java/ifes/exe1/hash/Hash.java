@@ -63,6 +63,9 @@ public class Hash {
         if(this.tabela[this.funcHash(prop)].size()>0){
             System.out.println("Houve colisão com " + prop);
         }
+        if(this.tabela[this.funcHash(prop)].size()<=0){
+            this.tabela[this.funcHash(prop)] = new ArrayList<>();
+        }
         this.tabela[this.funcHash(prop)].add(conteudo);
         System.out.println(prop + "Foi inserido");
     }

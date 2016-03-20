@@ -72,6 +72,10 @@ public  class No implements INo{
     public Object getValorProx(){
         return this.proximo.valor;
     }
-
+    
+    @Override
+    public String toString(){
+        return this.valor.toString();
+    }
     
 }

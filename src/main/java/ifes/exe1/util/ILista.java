@@ -21,5 +21,7 @@ public interface ILista {
     
     public int getTamanho();
     
+    public Object removeInicio();
     
+    public boolean vazia();
 }

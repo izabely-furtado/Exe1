@@ -51,18 +51,29 @@ public class Hash1 {
     
     //insere a hash tendo como propriedade uma string
     public void setConteudo(String prop, No conteudo){
-        if(this.tabela[this.funcHash(prop)].getTamanho()>0){
-            System.out.println("Houve colisão");
+        Lista lst = this.tabela[this.funcHash(prop)];
+        if (lst == null){
+            lst = new Lista();
         }
-        this.tabela[this.funcHash(prop)].addNo(conteudo);
+        int tamanho = lst.tamanho;
+        if(tamanho>0){
+            System.out.println("Houve colisão com " + prop);
+        }
+        lst.addNo(conteudo);
+        System.out.println(prop + "Foi inserido");
     }
     
     //insere a hash tendo como propriedade um inteiro
     public void setConteudo(long prop, No conteudo) throws Exception{
-        if(this.tabela[this.funcHash(prop)].getTamanho()>0){
+        Lista lst = this.tabela[this.funcHash(prop)];
+        if (lst == null){
+            lst = new Lista();
+        }
+        int tamanho = lst.tamanho;
+        if(tamanho>0){
             System.out.println("Houve colisão com " + prop);
         }
-        this.tabela[this.funcHash(prop)].addNo(conteudo);
+        lst.addNo(conteudo);
         System.out.println(prop + "Foi inserido");
     }
 
@@ -83,6 +94,9 @@ public class Hash1 {
     //pegando como propriedade o cpf da mesma
     public No getConteudo(long prop) throws Exception{
         Lista lst = this.getPosicaoLst(prop);
+        if(lst == null){
+            System.out.println("deu merda");
+        }
         for (int conteudo = 0; conteudo <=lst.getTamanho(); conteudo++){
             Pessoa p = (Pessoa) lst.getNo(conteudo).getValorNo();
             if(p.cpf == prop){
