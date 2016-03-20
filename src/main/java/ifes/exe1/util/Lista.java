@@ -18,7 +18,7 @@ public class Lista implements ILista {
     private No fim;
     private int tamanho;
 
-    Lista() {
+    public Lista() {
         this.inicio = null;
         this.fim = null;
         this.tamanho = 0;
